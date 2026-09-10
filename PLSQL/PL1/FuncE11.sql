@@ -1,0 +1,8 @@
+create or replace FUNCTION FPL1E11 (PNIF IN VARCHAR2, PDEALERS OUT number)RETURN NUMBER AS 
+vCars number;
+BEGIN
+    SELECT COUNT(codeCar), COUNT(DISTINCT cifD) INTO vCars, PDEALERS
+    FROM Sale
+    WHERE nif = PNIF;
+    RETURN vCars;
+END FPL1E11;
